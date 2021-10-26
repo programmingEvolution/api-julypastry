@@ -15,6 +15,7 @@ import rutasVentas from "./views/sale/router.js";
 
 dotenv.config({ path: "./config.env" });
 
+const port = process.env.PORT || 5000;
 const app = Express();
 
 app.use(Express.json());
@@ -39,8 +40,8 @@ app.use(rutasUsuario);
 app.use(rutasVentas);
 
 const main = () => {
-  return app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port: ${process.env.PORT}`);
+  return app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
   });
 };
 
