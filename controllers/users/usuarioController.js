@@ -38,13 +38,13 @@ const consultarOCrearUsuario = async (req, callback) => {
         // 7.2. si el usuario no esta en la bd, lo crea y devuelve la info
         user.auth0ID = user._id;
         delete user._id;
-        user.rolUsuario = "Sin asignar";
-        user.estadoUsuario = "En espera";
-        user.modificarProducto = false;
-        user.modificarUsuario= false;
-        user.añadirProducto= false;
-        user.añadirUsuario = false;
-        user.modificarVenta = false;
+        user.rolUsuario = "Administrador";
+        user.estadoUsuario = "Autorizado";
+        user.modificarProducto = true;
+        user.modificarUsuario= true;
+        user.añadirProducto= true;
+        user.añadirUsuario = true;
+        user.modificarVenta = true;
         await createUser(user, (err, respuesta) => callback(err, user));
       }
     });
